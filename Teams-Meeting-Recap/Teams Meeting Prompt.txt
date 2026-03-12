@@ -1,0 +1,118 @@
+Generate a meeting recap from the transcript. Follow the structure exactly. Be concise, specific, and evidence based. Do not invent details.
+
+CITATIONS (ONLY WHEN YOU INCLUDE SUBSTANTIVE CONTENT)
+- If you state an Outcome, Decision, Action Item, Risk/Blocker, Open Question, Dependency, Deferred Topic, or Next Checkpoint detail, include at least one citation in this format: (Speaker, HH:MM:SS).
+- Use at most 2 citations per bullet.
+- Do NOT add citations for "None captured" lines or for "Unknown" reasons.
+
+SILENCE RULE (CRITICAL FOR READABILITY)
+- If a section has no content, output ONLY:
+  - None captured.
+- Do not explain why.
+- Do not mention scanning.
+- Do not include timestamps.
+
+UNKNOWN RULE (MINIMAL, NO NOISE)
+- If a field is Unknown, include a short reason phrase only.
+  - Example: "Owner: Unknown. Reason: not assigned in transcript."
+- Do not include timestamps for Unknown reasons.
+
+QUALITY RULES
+- Outcomes are not a list of topics. Only include items that materially changed understanding, direction, risk, or next steps.
+- Each Executive Outcome must include a "Why selected" line.
+- Only call something a Decision if a choice was explicitly confirmed (approved, agreed, decided, "we will do X").
+- Action items must have: Owner, Due (or TBD), Done means, and Dependencies (or None).
+
+1) Executive outcomes (top 3 to 5)
+For each outcome, use exactly:
+
+- Outcome: <result, not activity>. (Speaker, HH:MM:SS)
+  - Why selected: <one label plus a short justification: Decision impact | Work unblocker | Risk reduction | Major scope change | Stakeholder alignment | Deadline driver>. (Speaker, HH:MM:SS)
+  - Evidence: <1 short paraphrased supporting phrase>. (Speaker, HH:MM:SS)
+
+If none:
+- None captured.
+
+2) Decisions (explicitly made)
+Format each decision:
+
+- Decision: <what was decided>. (Speaker, HH:MM:SS)
+  - Reason: <why it was made>. (Speaker, HH:MM:SS)
+  - Impact: <what changes now>. (Speaker, HH:MM:SS)
+
+If none:
+- None captured.
+
+3) Action items (commitments)
+Do NOT use a markdown table. Use this exact list format:
+
+- Action: <verb + object>. (Speaker, HH:MM:SS)
+  - Owner: <name or Unknown>. If Unknown: Reason: <short phrase>.
+  - Due: <date/time or TBD>. If TBD: Reason: <short phrase>.
+  - Done means: <clear completion criteria>.
+  - Dependencies: <people/teams/systems or None>.
+  - Evidence: (Speaker, HH:MM:SS)
+
+If none:
+- None captured.
+
+4) Risks and blockers
+Use this exact formatting:
+
+- Risk/Blocker: <what could go wrong or what is blocking>. (Speaker, HH:MM:SS)
+  - Severity: Low | Medium | High.
+  - Severity justification: <one sentence: impact + likelihood based on transcript>. (Speaker, HH:MM:SS)
+  - Impact: <what breaks or degrades>. (Speaker, HH:MM:SS)
+  - Likelihood: <Low | Medium | High | Unknown>. If Unknown: Reason: not discussed.
+  - Mitigation: <next step>. (Speaker, HH:MM:SS)
+  - Owner: <name or Unknown>. If Unknown: Reason: <short phrase>.
+
+If none:
+- None captured.
+
+5) Open questions (unresolved)
+Format:
+
+- Question: <what is unknown>. (Speaker, HH:MM:SS)
+  - Why open: <short reason>. (Speaker, HH:MM:SS)
+  - Owner: <name or Unknown>. If Unknown: Reason: <short phrase>.
+  - Needed by: <date or TBD>. If TBD: Reason: <short phrase>.
+
+If none:
+- None captured.
+
+6) Dependencies and handoffs
+Format:
+
+- Dependency/Handoff: <team/system/person>. (Speaker, HH:MM:SS)
+  - Need: <what is required>. (Speaker, HH:MM:SS)
+  - By: <date or TBD>. If TBD: Reason: <short phrase>.
+  - Why it matters: <one sentence>. (Speaker, HH:MM:SS)
+
+If none:
+- None captured.
+
+7) Parking lot (deferred topics)
+Format each deferred topic:
+
+- Deferred topic: <topic>. (Speaker, HH:MM:SS)
+  - Deferred because: <out of scope | timeboxed | missing info | wrong attendees | needs follow-up work | waiting on dependency>. (Speaker, HH:MM:SS)
+  - Next step: <what happens instead>. (Speaker, HH:MM:SS)
+
+If none:
+- None captured.
+
+8) Next checkpoint
+Only include details if explicitly stated. Otherwise keep it minimal.
+
+- Next checkpoint: <date/time or Unknown>. If Unknown: Reason: not mentioned.
+- Purpose: <purpose or Unknown>. If Unknown: Reason: not mentioned.
+- Preparation required: <prep steps or Unknown>. If Unknown: Reason: not mentioned.
+
+If none of the above were stated and everything is Unknown:
+- Next checkpoint: Unknown. Reason: not mentioned.
+
+FINAL CHECK
+- Remove duplicates and filler.
+- Ensure citations appear only on substantive items.
+- Ensure "None captured" lines have no extra explanation.
