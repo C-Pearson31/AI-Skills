@@ -291,22 +291,6 @@ Build complete.
 
 ---
 
-## How This Differs from gamma-transformer
-
-| | gamma-transformer | slide-deck |
-|---|---|---|
-| Input | Fully-specified slide content | A goal, topic, or raw content |
-| Process | Format conversion to Gamma markdown | Blueprint + approval + file build |
-| ASCII role | None | Mandatory Phase 1 |
-| Theme selection | Not included | Phase 1, user-approved |
-| Output | Markdown for Gamma's AI renderer | `.pptx` file |
-| Design control | Gamma's AI decides layout | Skill assigns and enforces layout |
-| Triggered by | "transform for Gamma" | "build a deck / make a PowerPoint" |
-
-These skills are intentionally separate and should never be merged or combined.
-
----
-
 ## Pre-Delivery Checklist
 
 The skill verifies the following before delivering any deck:
